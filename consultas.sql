@@ -37,11 +37,11 @@ Create table Planificacion_mensual(
 );
 
 --Consulta: Centro de trabajo de mayor horas laboradas 
-select top 1 nombre_centro,pm.Id_CentroTrabajo,SUM(horas_laboradas) as total_de_horas_laboradas from 
+select top 1 nombre_centro,SUM(horas_laboradas) as total_de_horas_laboradas from 
 Centro_de_Trabajo as ct inner join Planificacion_mensual as pm on ct.Id_CentroTrabajo = pm.Id_CentroTrabajo
 inner join Asistencia as a on a.Id_Asistencia = pm.Id_Asistencia
-where MONTH(fecha_asistencia) = Month(GETDATE())
-group by nombre_centro,pm.Id_CentroTrabajo
+where MONTH(fecha_asistencia) = Month(GETDATE()) and  YEAR(fecha_asistencia) = YEAR(getdate())
+group by nombre_centro
 order by total_de_horas_laboradas desc 
 
 --Consultas: empleado con mayor cantidad de inasistencias
