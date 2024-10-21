@@ -39,21 +39,26 @@ Create table Planificacion_mensual(
 --Consulta: Centro de trabajo de mayor horas laboradas 
 select top 1 nombre_centro,SUM(horas_laboradas) as total_de_horas_laboradas from 
 Centro_de_Trabajo as ct inner join Planificacion_mensual as pm on ct.Id_CentroTrabajo = pm.Id_CentroTrabajo
-inner join Asistencia as a on a.Id_Asistencia = pm.Id_Asistencia
+inner join Asistencia as a on a.Id_Empleado = pm.Id_Empleado
 where MONTH(fecha_asistencia) = Month(GETDATE()) and  YEAR(fecha_asistencia) = YEAR(getdate())
 group by nombre_centro
 order by total_de_horas_laboradas desc 
 
 --Consultas: empleado con mayor cantidad de inasistencias
-select nombre_centro, CONCAT(Nombres,' ',Apellidos) as Colaborador, COUNT(asistencia) as inasistencias from Planificacion_mensual as pm 
-inner join Asistencia as a on pm.Id_Asistencia = a.Id_Asistencia
-inner join Centro_de_Trabajo as ct on ct.Id_CentroTrabajo = pm.Id_CentroTrabajo inner join Empleado as e on pm.Id_Empleado = e.Id_Empleado
+select top 1 nombre_centro, CONCAT(Nombres,' ',Apellidos) as Colaborador, COUNT(*) as inasistencias 
+from Planificacion_mensual as pm 
+inner join Asistencia as a on pm.Id_Empleado = a.Id_Empleado
+inner join Centro_de_Trabajo as ct on ct.Id_CentroTrabajo = pm.Id_CentroTrabajo 
+inner join Empleado as e on pm.Id_Empleado = e.Id_Empleado
 where MONTH(fecha_asistencia) = Month(GETDATE()) and YEAR(fecha_asistencia) = YEAR(getdate()) and asistencia = 0
-Group by nombre_centro, CONCAT(Nombres,' ',Apellidos)
+Group by nombre_centro, e.Id_Empleado, Nombres,Apellidos  order by inasistencias desc 
 
 --Consulta: Horas extras del empleado
-select nombres, sum(horas_laboradas-Horas_planificadas) as Horas_Extras from Empleado as e inner join Asistencia as a on e.Id_Empleado = a.Id_Empleado
+select CONCAT(Nombres,' ',Apellidos) as Colaborador, sum(horas_laboradas-Horas_planificadas) as Horas_Extras 
+from Empleado as e 
+inner join Asistencia as a on e.Id_Empleado = a.Id_Empleado
 inner join Planificacion_mensual as pm on a.Id_Asistencia = pm.Id_Asistencia
-where MONTH(fecha_asistencia) = Month(GETDATE()) and horas_laboradas >= 8 and YEAR(fecha_asistencia) = YEAR(getdate())
-group by nombres
+where MONTH(fecha_asistencia) = Month(GETDATE()) and horas_laboradas > Horas_planificadas 
+and YEAR(fecha_asistencia) = YEAR(getdate())
+group by e.Id_Empleado, CONCAT(Nombres,' ',Apellidos)
 
