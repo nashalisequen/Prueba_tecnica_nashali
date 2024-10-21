@@ -85,4 +85,25 @@ insert into Asistencia (Id_Asistencia, Id_Empleado, fecha_asistencia, asistencia
 
 select * from Asistencia
 
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('051-9', 'AK49', '2024-01-20', 3, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('940-7', 'EPLB', '2023-05-16', 12, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('660-2', 'OAUZ', '2024-04-03', 13, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('906-X', 'CZJG', '2023-04-05', 9, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('060-1', 'NTTX', '2023-08-09', 7, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('051-9', 'SGES', '2023-05-12', 4, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('051-9', 'SGES', '2024-06-26', 7, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('169-6', 'SKBQ', '2024-05-18', 8, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('906-1', 'AK49', '2023-01-02', 14, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('660-2', 'EPLB', '2024-02-24', 1, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('520-X', 'NTTX', '2024-07-22', 6, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('906-X', 'HAMR', '2024-06-03', 5, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('906-1', 'SDLP', '2024-06-15', 8, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('940-7', 'SDLP', '2023-04-09', 15, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('308-2', 'HAMR', '2024-07-30', 12, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('169-6', 'OAUZ', '2024-05-07', 11, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('308-2', 'SBJU', '2023-03-23', 9, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('060-1', 'SBJU', '2024-09-24', 10, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('520-X', 'CZJG', '2023-12-06', 2, 8);
+insert into Planificacion_mensual (Id_CentroTrabajo, Id_Asistencia, fecha, Id_Empleado, Horas_planificadas) values ('051-9', 'AK49', '2023-10-04', 14, 8);
 
+Select * from Planificacion_mensual
